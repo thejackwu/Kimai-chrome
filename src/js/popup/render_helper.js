@@ -39,7 +39,7 @@ const renderTimeEntries = timeEntries => {
       timeEntriesHTML += 
       `
           <li class="list-group-item list-group-item-secondary">
-            Total: ${totalTimeToDate.toFixed(2)} h @ <i>${startTime.format("ddd MMM Do")}</i>
+            Total: ${totalTimeToDate.toFixed(2)} h @ &nbsp <i>${startTime.format("ddd MMM Do")}</i>
           </li>
         </div>
         <div class='day-group'>

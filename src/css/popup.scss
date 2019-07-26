@@ -26,6 +26,10 @@ $border-style: 1px solid $boarder-color;
       &.list-group-item-primary {
         background-color: #deeeff;
       }
+
+      &.list-group-item-secondary {
+        justify-content: unset;
+      }
     }
   }
 
