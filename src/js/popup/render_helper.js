@@ -75,31 +75,22 @@ const renderProjectTimerButtons = projects => {
 
     projectButtonsHTML += 
     ` 
-      <div class="project-button-block">
-        <p class="title">${project.name}</p>
-        <select class="activity-selection" id="project-${project.id}-activity-selection">
-          ${
-            projectActivities &&
-            projectActivities.map( (activity) => `
-              <option value="${activity.id}">${activity.name}</option>
-            `)
-          }
-        </select>
-        <button type="button" class="btn btn-outline-success btn-sm project-start-button" name="${project.id}">Start</button>
+      <div class="project-button-block card">
+        <div class="title card-header">${project.name}</div>
+        <div class="card-body">
+          <select class="activity-selection" id="project-${project.id}-activity-selection">
+            ${
+              projectActivities &&
+              projectActivities.map( (activity) => `
+                <option value="${activity.id}">${activity.name}</option>
+              `)
+            }
+          </select>
+          <button type="button" class="btn btn-outline-success btn-sm project-start-button" name="${project.id}">Start</button>
+        </div>
       </div>
     `
   });
-
-  projectButtonsHTML = 
-  `
-  <div class="card">
-    <div class="card-body">
-      <div class="button-group">
-        ${projectButtonsHTML}
-      </div>
-    </div>
-  </div>
-  `
 
   $('#project-buttons').html(projectButtonsHTML);
   $('.project-start-button').click(projectStartButtonOnClick);

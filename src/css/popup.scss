@@ -1,4 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
+$boarder-color: rgba(0, 0, 0, 0.125);
+$border-radius: 0.25em;
+$border-style: 1px solid $boarder-color;
 
 .container {
   width: 30em;
@@ -6,52 +9,84 @@
 }
 
 /* Time Entries block */
-#time-entries {
-  max-height: 15em;
-  overflow-y: auto;
+#time-entries-row {
+  .col {
+    padding: 0;
+  }
 
-  .list-group-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  #time-entries {
+    max-height: 15em;
+    overflow-y: auto;
 
-    &.list-group-item-primary {
-      background-color: #deeeff;
+    .list-group-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &.list-group-item-primary {
+        background-color: #deeeff;
+      }
     }
+  }
+
+  #time-entries button {
+    float: right;
+  }
+
+  .ongoing-badge {
+    float: right;
+  }
+
+  .day-group {
+    margin-bottom: 0.5em;
   }
 }
 
-#time-entries button {
-  float: right;
-}
-
-.ongoing-badge {
-  float: right;
-}
-
-.day-group {
-  margin-bottom: 0.5em;
-}
-
 /* Timer block */
-.project-button-block {
-  text-align: center;
-  padding: 0.5em;
-}
+#project-timer-row {
+  overflow-y: auto;
 
-.activity-selection {
-  width: 95%;
-  margin-bottom: 1em;
-}
+  .project-button-block {
+    text-align: center;
+  }
 
-.button-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+  .activity-selection {
+    width: 95%;
+    margin-bottom: 1em;
+  }
 
-button {
-  cursor: pointer;
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .project-button-block {
+      border-radius: 0;
+      border: unset;
+      border-top: $border-style;
+      border-bottom: $border-style;
+    }
+
+    .project-button-block:first-of-type {
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+      border-left: $border-style;
+    }
+
+    .project-button-block:last-of-type {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+      border-right: $border-style;
+    }
+
+    .card-header {
+      padding: 0.2em;
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
 }
 
 /* Message block */
