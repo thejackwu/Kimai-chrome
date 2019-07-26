@@ -1,5 +1,5 @@
 import "../css/options.scss";
-import $ from 'jquery';
+import { pingWithCredentials } from './popup/api_call_helper';
 
 function constructOptions() {
   let button = $('#save-button');
@@ -17,13 +17,21 @@ function constructOptions() {
     const apiUsername = $('#api-username-input').val();
     const apiPassword = $('#api-password-input').val();
     
-    chrome.storage.sync.set({
-      apiUsername: apiUsername,
-      apiPassword: apiPassword,
-      apiRootUrl: apiRootUrl
-    }, ()=>  {
-      $('#message').text("API information is saved.");
-    });
+    pingWithCredentials(
+      apiRootUrl, apiUsername, apiPassword,
+      () =>{
+        chrome.storage.sync.set({
+          apiUsername: apiUsername,
+          apiPassword: apiPassword,
+          apiRootUrl: apiRootUrl
+        }, () => {
+          $('#message').text("API information is saved.");
+        });
+      },
+      () => {
+        $('#message').text("API endpoint or credential is invalid");
+      }
+    )
   });
 }
 constructOptions();

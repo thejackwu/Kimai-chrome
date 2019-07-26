@@ -119,6 +119,18 @@ export function stopActivityTimer(timeSheetID, successHandler, errorHandler){
   );
 }
 
+export function pingWithCredentials(endpoint, username, password, successHandler, errorHandler){
+  const ajaxParams = getAjaxParams(endpoint, username, password);
+      
+  $.ajax({
+    ...ajaxParams,
+    url: `${ajaxParams.rootUrl}/api/ping`,
+    type: 'GET',
+    success: successHandler,
+    error: errorHandler
+  });
+}
+
 // Utility functions
 function getCurrentTimeInString(){
   const tzoffset = (new Date()).getTimezoneOffset() * 60000;
