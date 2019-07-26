@@ -16,7 +16,8 @@ function constructOptions() {
     const apiRootUrl = $('#endpoint').val();
     const apiUsername = $('#api-username-input').val();
     const apiPassword = $('#api-password-input').val();
-    
+    $('#message').text("");
+
     pingWithCredentials(
       apiRootUrl, apiUsername, apiPassword,
       () =>{
