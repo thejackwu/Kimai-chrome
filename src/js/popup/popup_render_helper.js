@@ -52,10 +52,7 @@ const renderTimeEntries = timeEntries => {
   finishLoading();
 };
 
-
-const renderProjectTimerButtons = projects => {
-  console.log(projects);
-  
+const renderProjectTimerButtons = projects => {  
   let projectButtonsHTML = "";
 
   projects.forEach(project => {
@@ -95,7 +92,7 @@ const renderProjectTimerButtons = projects => {
 }
 
 const projectStartButtonOnClick = e => {
-  loading();
+  loading();  
 
   const projectButton = $(e.target);
   const projectID = projectButton.attr('name');

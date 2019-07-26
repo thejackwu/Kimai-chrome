@@ -55,8 +55,6 @@ export function loadAllProjectsAndActivities(successHandler, errorHandler){
       ).done( (projects, activities) => {
         projects = projects[0];
         activities = activities[0];
-    
-        console.log(projects);
         
         projectWithActivityArray = projects;
     
