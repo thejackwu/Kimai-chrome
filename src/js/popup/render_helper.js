@@ -18,13 +18,15 @@ const renderTimeEntries = timeEntries => {
     timeEntriesHTML += 
     `
       <li class="list-group-item ${isOngoing ? 'list-group-item-primary' : ''}">
-        ${
-          isOngoing ?
-            `<span class="start">${startTime.format("h:mm a")}</span>`
-          :
-            `${duration.asHours().toFixed(2)} h`
-        }
-        @ <b><span class="project">${entry.projectName}</span></b>
+        <div class="time-entry-text">
+          ${
+            isOngoing ?
+              `<span class="start">${startTime.format("h:mm a")}</span>`
+            :
+              `${duration.asHours().toFixed(2)} h`
+          }
+          @ <b><span class="project">${entry.projectName}</span></b>
+        </div>
         ${ isOngoing ? `<button class="btn btn-outline-secondary btn-sm activity-stop-button" name="${entry.id}">Stop</button>` : "" }
       </li>
     `;
