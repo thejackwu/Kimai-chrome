@@ -1,6 +1,6 @@
 import moment from 'moment';
 import { loadAllTimeEntries, stopActivityTimer, startProjectTimer } from './api_call_helper';
-import { finishLoading, loading, showError } from './popup_message_helpers';
+import { finishLoading, loading, showError } from './message_helpers';
 
 const renderTimeEntries = timeEntries => {
   let timeEntriesHTML = "<div class='day-group'>";
