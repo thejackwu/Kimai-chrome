@@ -1,0 +1,56 @@
+.container {
+  width: 30em;
+  padding-bottom: 1em;
+}
+
+/* Time Entries block */
+#time-entries {
+  max-height: 15em;
+  overflow-y: auto;
+}
+
+#time-entries button {
+  float: right
+}
+
+.ongoing-badge {
+  float: right;
+}
+
+.day-group {
+  margin-bottom: 0.5em;
+}
+
+/* Timer block */
+.project-button-block {
+  text-align: center;
+  padding: 0.5em;
+}
+
+.activity-selection {
+  width: 95%;
+  margin-bottom: 1em;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Message block */
+.message-row {
+  text-align: center;
+}
+
+.row {
+  margin: 1em 0;
+}
+
+.project-button-block .title {
+  color: grey;
+}

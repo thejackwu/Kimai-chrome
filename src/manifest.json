@@ -8,11 +8,14 @@
   },
   "browser_action": {
     "default_popup": "popup.html",
-    "default_icon": "kimai-logo.pngw"
+    "default_icon": "kimai-logo.png"
   },
   "icons": {
     "128": "kimai-logo.png"
   },
   "manifest_version": 2,
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": [
+    "storage"
+  ]
 }

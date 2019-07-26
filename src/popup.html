@@ -1,14 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <title></title>
 </head>
 
 <body>
-  <h1>Hello!</h1>
-  <img src="img/kimai-logo.png">
+  <div class="container">
+
+    <div class="row">
+      <div class="col">
+        <div id="project-buttons"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div id="time-entries"></div>
+      </div>
+    </div>
+
+    <div class="col message-row">
+      <p id="message"></p>
+      <div class="d-flex align-items-center" id="spinner">
+        Loading...
+        <div class="spinner-border ml-auto spinner-border-sm" role="status" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
