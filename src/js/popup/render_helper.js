@@ -1,10 +1,13 @@
 import moment from 'moment';
-import { loadAllTimeEntries, stopActivityTimer, startProjectTimer } from './api_call_helper';
-import { finishLoading, loading, showError } from './message_helpers';
+import { finishLoading } from './message_helpers';
+import { projectStartButtonOnClick, activityStopBtnOnClick } from './button_action_helper';
+import ongoingIcon from '../../img/kimai-icon-ongoing.png';
+import normalIcon from '../../img/kimai-icon.png';
 
 const renderTimeEntries = timeEntries => {
   let timeEntriesHTML = "<div class='day-group'>";
   let totalTimeToDate = 0;
+  let isTimerRunning = false;
 
   timeEntries.forEach( (entry, index) => {
     const startTime = moment(entry.begin);
@@ -43,6 +46,10 @@ const renderTimeEntries = timeEntries => {
       totalTimeToDate = 0;
     }
 
+    // Update timer ongoing indicator
+    if(isOngoing === true){
+      isTimerRunning = true;
+    }
   });
   
   timeEntriesHTML = `<ul class="list-group">${timeEntriesHTML}</ul>`
@@ -50,9 +57,15 @@ const renderTimeEntries = timeEntries => {
   $('#time-entries').html(timeEntriesHTML);
   $('.activity-stop-button').click(activityStopBtnOnClick);
   finishLoading();
+
+  if(isTimerRunning){
+    chrome.browserAction.setIcon({path: ongoingIcon});
+  }else{
+    chrome.browserAction.setIcon({path: normalIcon});
+  }
 };
 
-const renderProjectTimerButtons = projects => {  
+const renderProjectTimerButtons = projects => {
   let projectButtonsHTML = "";
 
   projects.forEach(project => {
@@ -88,26 +101,6 @@ const renderProjectTimerButtons = projects => {
 
   $('#project-buttons').html(projectButtonsHTML);
   $('.project-start-button').click(projectStartButtonOnClick);
-  finishLoading();
-}
-
-const projectStartButtonOnClick = e => {
-  loading();  
-
-  const projectButton = $(e.target);
-  const projectID = projectButton.attr('name');
-  const activityID = $(`#project-${projectID}-activity-selection`).val();
-
-  startProjectTimer(projectID, activityID, 
-    () => loadAllTimeEntries(renderTimeEntries, showError),
-    showError
-  );
-  finishLoading();
-}
-
-const activityStopBtnOnClick = e => {
-  const activityID = $(e.target).attr('name');  
-  stopActivityTimer(activityID, () => loadAllTimeEntries(renderTimeEntries, showError), showError);
   finishLoading();
 }
 
