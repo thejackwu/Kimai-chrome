@@ -1,5 +1,6 @@
 'use strict';
-import "../css/popup.css";
+import "../css/popup.scss";
+import 'bootstrap';
 import { showError, loading, finishLoading } from "./popup/popup_helpers.js";
 import { loadAllTimeEntries, loadAllProjectsAndActivities, startProjectTimer, stopActivityTimer } from "./popup/api_call.js";
 import moment from 'moment';
