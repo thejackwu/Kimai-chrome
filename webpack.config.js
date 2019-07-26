@@ -87,6 +87,9 @@ var options = {
         }))
       }
     }]),
+    new webpack.ProvidePlugin({
+      $: 'jquery'
+    }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "popup.html"),
       filename: "popup.html",

@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 const apiConfig = {
   timeSheetSize: 20
 };

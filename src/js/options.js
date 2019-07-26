@@ -1,4 +1,4 @@
-import "../css/options.css";
+import "../css/options.scss";
 import $ from 'jquery';
 
 function constructOptions() {
